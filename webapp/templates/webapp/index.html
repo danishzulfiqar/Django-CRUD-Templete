@@ -1,0 +1,23 @@
+<!-- Extends webapp/base.html -->
+
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+<body>
+    <br>
+    <br>
+    <div class="text-center">
+        <h3>CRM Application</h3>
+        <br>
+        <h5>CRUD opperations Django app</h5>
+        <br>
+        <br>
+        <hr>
+        <br>
+    <a class="btn btn-primary" type="button" href="{% url 'register' %}">Create Account</a>
+    </div>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,5 @@
+# Gitignore file for Python projects
+
+db.sqlite3
+.DS_Store
+

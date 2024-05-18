@@ -1,0 +1,83 @@
+{% extends 'webapp/base.html' %}
+
+
+{% block content %}
+
+<div class="dashboard-layout text-center container">
+
+    <h5 class="text-center"> Welcome, {{user}}! 👋 </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm " href="{% url 'create_record' %}">
+
+        Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table-hover table-bordered">
+
+        <thead class="table-light">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Full name </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Phone </th>
+                <th scope="col"> Address </th>
+                <th scope="col"> Date joined </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% if records %}
+
+            {% for record in records %}
+
+            <tr>
+
+                <td> {{record.id}} </td>
+
+                <td> {{record.name}} </td>
+
+                <td> {{record.email}} </td>
+
+                <td> {{record.phone}} </td>
+
+                <td> {{record.address}} </td>
+
+                <td> {{record.creation_date}} </td>
+
+                <td>
+                    <a class="btn btn-info btn-sm" href="{% url 'view_record' record.id %}"> View <i
+                            class="fa fa-eye" aria-hidden="true"></i> </a>
+                    <a href="{% url 'delete_record' record.id %}" class="btn btn-sm btn-danger"> Delete &nbsp;<i
+                            class="fa fa-minus-square" aria-hidden="true"></i> </a>
+
+                </td>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            {% endif %}
+
+
+        </tbody>
+
+
+    </table>
+
+</div>
+
+
+{% endblock %}
